@@ -151,9 +151,9 @@ uname -s -r -m
 
 printf '\n'
 
+# Network speedtests
 while [ TRUE ]
 do
-# Network speedtests
 
 ipv4=$(curl -4 -s --max-time 5 http://icanhazip.com/)
 if [ -n "$ipv4" ]
