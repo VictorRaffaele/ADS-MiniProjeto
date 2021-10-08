@@ -102,9 +102,9 @@ then
     gnu_dd=''
 fi
 
-printf '%s\n' '-------------------------------------------------'
+
+printf '%s\n' '-------------------------------------------------' 
 printf ' nench.sh v2019.07.20 -- https://git.io/nench.sh\n'
-date -u '+ benchmark timestamp:    %F %T UTC'
 printf '%s\n' '-------------------------------------------------'
 
 printf '\n'
@@ -152,10 +152,13 @@ uname -s -r -m
 printf '\n'
 
 # Network speedtests
+while [ TRUE ]
+do
 
 ipv4=$(curl -4 -s --max-time 5 http://icanhazip.com/)
 if [ -n "$ipv4" ]
 then
+    date -u '+benchmark timestamp:    %F %T UTC'   
     printf 'IPv4 speedtests\n'
     printf '    your IPv4:    %s\n' "$(redact_ip "$ipv4")"
     printf '\n'
@@ -214,3 +217,4 @@ else
 fi
 
 printf '%s\n' '-------------------------------------------------'
+done
