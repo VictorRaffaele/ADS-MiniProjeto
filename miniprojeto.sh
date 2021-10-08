@@ -6,6 +6,9 @@ amostra=0
 while [ TRUE ]
 do
 
+interface1=`cat /proc/net/dev | grep "lo" | awk '{print $1}'`
+interface2=`cat /proc/net/dev | grep "ens33" | awk '{print $1}'`
+
 rec_local=`cat /proc/net/dev | grep "lo" | awk '{print $2}'`
 rec_pack_lo=`cat /proc/net/dev | grep "lo" | awk '{print $3}'`
 
@@ -22,7 +25,7 @@ data=`date`
 
 amostra=`expr $amostra + 1`
 
-echo $amostra "      lo:      " $rec_local "  " $rec_pack_lo "      " $send_local " " $send_pack_lo "      " $data >> log_rede.txt
-echo "        ens33:   " $rec_ens33 " " $rec_pack_ens33 "    " $send_ens33 "" $send_pack_ens33 >> log_rede.txt
+echo $amostra "     " $interface1 "     " $rec_local "  " $rec_pack_lo "    " $send_local " " $send_pack_lo "     " $data >> log_rede.txt
+echo "       " $interface2 "  " $rec_ens33 $rec_pack_ens33 " " $send_ens33 $send_pack_ens33 >> log_rede.txt
 sleep 15
 done
