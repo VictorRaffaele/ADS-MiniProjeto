@@ -146,10 +146,10 @@ else
         swapinfo -k | awk 'NR>1 && $1!="Total" {total+=$2} END {print total*1024}' | B_to_MiB
     fi
 fi
-printf 'Kernel:       '
-uname -s -r -m
-
-printf '\n'
+    printf 'Kernel:       ''
+    uname -s -r -m'
+5
+1printf '\n'
 
 # Network speedtests
 while [ TRUE ]

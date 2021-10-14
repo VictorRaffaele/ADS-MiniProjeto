@@ -27,5 +27,5 @@ amostra=`expr $amostra + 1`
 
 echo $amostra "     " $interface1 "     " $rec_local "  " $rec_pack_lo "    " $send_local " " $send_pack_lo "     " $data >> log_rede.txt
 echo "       " $interface2 "  " $rec_ens33 $rec_pack_ens33 " " $send_ens33 $send_pack_ens33 >> log_rede.txt
-sleep 15
+sleep 60
 done
